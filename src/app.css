@@ -1,0 +1,25 @@
+:root {
+  --yellow-primary: #ffd700;
+  --yelow-dark: #f5c400;
+  --yellow-light: #fff9c4;
+  --blue-deep: #1b3a6b;
+  --blue-mid: #2567eb;
+  --orange-accent: #ff6b2b;
+  --sky-top: #87ceeb;
+  --sky-bottton: #b8e4ff;
+  --grase-light: #c8eea0;
+  --grass-dark: #7ec850;
+  --status-alive: #4ade80;
+  --status-dead: #f87171;
+  --card-background: #fffdf0;
+}
+
+.container {
+  background: linear-gradient(
+    180deg,
+    #87ceeb 0%,
+    #b8e4ff 60%,
+    #c8eea0 85%,
+    #7ec850 100%
+  );
+}
