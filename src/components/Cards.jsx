@@ -61,7 +61,7 @@ export const Cards = () => {
                   style={{ marginTop: "5px" }}
                   onClick={handleClose}
                 >
-                  close
+                  OCULTAR
                 </button>
               </div>
             )}
