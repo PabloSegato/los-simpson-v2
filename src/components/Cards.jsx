@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import "./cards.css";
 
 export const Cards = () => {
   const [pages, setPages] = useState(1);
@@ -25,27 +26,37 @@ export const Cards = () => {
 
   console.log(data);
   return (
-    <article>
+    <div className="container-cards">
       {data.results?.map((personajes) => (
-        <div key={personajes.id}>
-          <img
-            src={`https://cdn.thesimpsonsapi.com/200${personajes.portrait_path}`}
-            alt=""
-          />
-          <h5>{personajes.status}</h5>
+        <div key={personajes.id} className="card">
+          <div className="card-header">
+            <img
+              src={`https://cdn.thesimpsonsapi.com/200${personajes.portrait_path}`}
+              alt="Imagen del personaje"
+            />
+            {/* tengo que hacer la modificacion de cuando este muerto salga en
+            rojo */}
+            <span>{personajes.status}</span>
+          </div>
 
-          <div className="information-card">
+          <div className="card-body">
             <h3>{personajes.name}</h3>
             <span>
               {personajes.gender} AGE {personajes.age}
             </span>
-            <p>{personajes.occupation}</p>
+            <div className="ocupation-text">{personajes.occupation}</div>
+            <button className="phrases-toggle">VER FRASES </button>
+
+            <div className="phrases">
+              {/* Aca lo que tengo que hacer es que el botton me cambie el display para ver o no las frases */}
+              {personajes.phrases.map((phrases, index) => (
+                <div className="container-phrases">
+                  {" "}
+                  <p key={index}> {phrases}</p>{" "}
+                </div>
+              ))}
+            </div>
           </div>
-          <button>VER FRASES </button>
-          {/* Aca lo que tengo que hacer es que el botton me cambie el display para ver o no las frases */}
-          {personajes.phrases.map((phrases, index) => (
-            <p key={index}> {phrases}</p>
-          ))}
         </div>
       ))}
 
@@ -57,6 +68,6 @@ export const Cards = () => {
         {" "}
         + 1
       </button>
-    </article>
+    </div>
   );
 };

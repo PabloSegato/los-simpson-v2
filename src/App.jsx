@@ -1,6 +1,6 @@
 import "./app.css";
-import { Cards } from "./pages/Cards";
-import { Pagination } from "./pages/Pagination";
+import { Cards } from "./components/Cards";
+import { Pagination } from "./components/Pagination";
 export const App = () => {
   return (
     <div className="container">
