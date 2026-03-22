@@ -26,8 +26,6 @@ export const Cards = ({ data, inputSearch }) => {
               src={`https://cdn.thesimpsonsapi.com/200${personajes.portrait_path}`}
               alt="Imagen del personaje"
             />
-            {/* tengo que hacer la modificacion de cuando este muerto salga en
-            rojo */}
 
             <span id={personajes.status == "Alive" ? "Alive" : "Deceased"}>
               {personajes.status}

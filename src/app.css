@@ -112,3 +112,35 @@
   border: 3px solid var(--blue-deep);
   box-shadow: 4px 4px var(--blue-deep);
 }
+
+.hidde {
+  display: none;
+}
+.buttonPage {
+  border-radius: 18px;
+  padding: 10px 15px;
+  font-family: "Bangers";
+  letter-spacing: 1px;
+  background-color: var(--yellow-primary);
+  box-shadow: 4px 4px var(--blue-deep);
+  margin: 0px 8px 0 8px;
+
+  &:active {
+    color: var(--yellow-primary);
+    background-color: var(--blue-deep);
+  }
+
+  &:hover {
+    transform: scale(1.1);
+  }
+}
+
+footer {
+  height: auto;
+  width: 100vw;
+  background-color: transparent;
+  margin-top: 10px;
+  display: flex;
+  text-align: center;
+  justify-content: center;
+}
