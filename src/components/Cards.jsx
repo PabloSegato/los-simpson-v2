@@ -10,11 +10,16 @@ export const Cards = ({ data, inputSearch }) => {
   const handleClose = () => {
     setActiveId(null);
   };
+
+  const personajesFiltrados =
+    data.results?.filter((personaje) =>
+      personaje.name.toLowerCase().includes(inputSearch.toLowerCase()),
+    ) ?? [];
   // Colocar todas las variables posibles en un archivo de constantes.js para poder hacer mas optimo el codigo
   console.log(inputSearch);
   return (
     <div className="container-cards">
-      {data.results?.map((personajes) => (
+      {personajesFiltrados.map((personajes) => (
         <div key={personajes.id} className="card">
           <div className="card-header">
             <img

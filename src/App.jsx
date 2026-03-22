@@ -46,12 +46,26 @@ export const App = () => {
         <button>FEMALE </button>
         <button>ALIVE</button>
       </form>
-      <h3 id="title-pagination">PERSONAJES - PÁGINA 1</h3>
+      <h3 id="title-pagination">PERSONAJES - PÁGINA {page}</h3>
       <Cards data={data} inputSearch={inputSearch} />
+      <button onClick={() => page > 1 && setPage(page - 1)}>
+        {" "}
+        Pagina anterior{" "}
+      </button>
       <button onClick={() => setPage(page + 1)}> Siguiente pagina</button>
+
       <Pagination />
 
-      <footer>LOS SIMPSON APP - SPRINGFIELD DATABASE</footer>
+      <footer
+        style={{
+          height: "80px",
+          width: "100vw",
+          backgroundColor: "black",
+          color: "white",
+        }}
+      >
+        LOS SIMPSON APP - SPRINGFIELD DATABASE
+      </footer>
     </div>
   );
 };
