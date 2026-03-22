@@ -16,24 +16,23 @@
 
 .container-cards {
   display: grid;
-  margin-top: 20px;
-  grid-template-columns: repeat(4, 1fr);
+  padding: 20px;
+  margin-top: 10px;
+  width: 100vw;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
   gap: 20px;
-  margin: 20px;
 }
 .card {
+  min-height: 500px;
+  height: fit-content;
+  display: flex;
+  flex-direction: column;
   border: 4px solid var(--blue-deep);
   box-shadow: 6px 8px var(--blue-deep);
   border-radius: 12px;
   background-color: var(--card-background);
-  height: fit-content;
 }
 
-/* display: flex;
-  flex-direction: column;
-  box-shadow: 6px 6px var(--blue-deep);
-  background-color: var(--card-background);
-  border-radius: 12px; */
 .card-header {
   display: flex;
   align-items: center;
@@ -43,18 +42,28 @@
   height: fit-content;
   border-top-left-radius: 8px;
   border-top-right-radius: 8px;
+}
 
-  span {
-    font-family: "Nunito", sans-serif;
-    font-weight: 500;
-    font-size: 1rem;
-    align-self: flex-start;
-    margin-top: 15px;
-    background-color: var(--status-alive);
-    /* tengo que hacer la modificacion de cuando este muerto salga en rojo */
-    padding: 5px 15px;
-    border-radius: 12px;
-  }
+#Alive {
+  font-family: "Nunito", sans-serif;
+  font-weight: 500;
+  font-size: 1rem;
+  align-self: flex-start;
+  margin-top: 15px;
+  background-color: var(--status-alive);
+  padding: 5px 15px;
+  border-radius: 12px;
+}
+
+#Deceased {
+  font-family: "Nunito", sans-serif;
+  font-weight: 500;
+  font-size: 1rem;
+  align-self: flex-start;
+  margin-top: 15px;
+  background-color: var(--status-dead);
+  padding: 5px 15px;
+  border-radius: 12px;
 }
 
 .card-body {

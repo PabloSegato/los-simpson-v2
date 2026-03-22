@@ -1,11 +1,7 @@
 import { useState } from "react";
 import "./cards.css";
-import { useFetch } from "../hooks/useFetch.jsx";
-import { url } from "../constants.js";
 
-export const Cards = () => {
-  const [pages, setPages] = useState(1);
-  const API_URL = `${url}/characters?page=${pages}`;
+export const Cards = ({ data, inputSearch }) => {
   const [activeId, setActiveId] = useState(null);
 
   const handlePhrase = (id) => {
@@ -14,11 +10,8 @@ export const Cards = () => {
   const handleClose = () => {
     setActiveId(null);
   };
-
   // Colocar todas las variables posibles en un archivo de constantes.js para poder hacer mas optimo el codigo
-
-  const { data } = useFetch(API_URL);
-
+  console.log(inputSearch);
   return (
     <div className="container-cards">
       {data.results?.map((personajes) => (
@@ -30,7 +23,10 @@ export const Cards = () => {
             />
             {/* tengo que hacer la modificacion de cuando este muerto salga en
             rojo */}
-            <span>{personajes.status}</span>
+
+            <span id={personajes.status == "Alive" ? "Alive" : "Deceased"}>
+              {personajes.status}
+            </span>
           </div>
 
           <div className="card-body">
@@ -68,15 +64,6 @@ export const Cards = () => {
           </div>
         </div>
       ))}
-
-      <button
-        onClick={() => {
-          setPages(pages + 1);
-        }}
-      >
-        {" "}
-        + 1
-      </button>
     </div>
   );
 };
