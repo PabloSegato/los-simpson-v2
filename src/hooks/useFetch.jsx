@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 
-export const useFetch = (API_URL) => {
+export const useFetch = (API_URL, page) => {
   const [data, setData] = useState([]);
 
   useEffect(() => {
@@ -15,7 +15,7 @@ export const useFetch = (API_URL) => {
     };
 
     obtenerDatos();
-  }, [API_URL]);
+  }, [API_URL, page]);
 
   return { data };
 };

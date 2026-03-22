@@ -5,9 +5,9 @@ import { Pagination } from "./components/Pagination";
 import { url } from "./constants.js";
 import { useFetch } from "./hooks/useFetch.jsx";
 export const App = () => {
-  const page = 3;
+  const [page, setPage] = useState(1);
   const API_URL = `${url}/characters?page=${page}`;
-  const { data } = useFetch(API_URL);
+  const { data } = useFetch(API_URL, page);
   const [inputSearch, setInputSearch] = useState("");
 
   const handleSubmit = () => {
@@ -48,6 +48,7 @@ export const App = () => {
       </form>
       <h3 id="title-pagination">PERSONAJES - PÁGINA 1</h3>
       <Cards data={data} inputSearch={inputSearch} />
+      <button onClick={() => setPage(page + 1)}> Siguiente pagina</button>
       <Pagination />
 
       <footer>LOS SIMPSON APP - SPRINGFIELD DATABASE</footer>
