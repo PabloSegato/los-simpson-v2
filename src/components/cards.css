@@ -44,7 +44,7 @@
   border-top-right-radius: 8px;
 }
 
-#Alive {
+.status-alive {
   font-family: "Nunito", sans-serif;
   font-weight: 500;
   font-size: 1rem;
@@ -55,7 +55,7 @@
   border-radius: 12px;
 }
 
-#Deceased {
+.status-deceased {
   font-family: "Nunito", sans-serif;
   font-weight: 500;
   font-size: 1rem;

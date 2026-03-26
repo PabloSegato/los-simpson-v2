@@ -1,31 +1,29 @@
 import { useState } from "react";
 import "./app.css";
 import { Cards } from "./components/Cards";
-import { Pagination } from "./components/Pagination";
 import { url } from "./constants.js";
 import { useFetch } from "./hooks/useFetch.jsx";
 export const App = () => {
-  const [pages, setPages] = useState(1);
-  const API_URL = `${url}/characters?page=${pages}`;
-  const { data } = useFetch(API_URL);
   const [inputSearch, setInputSearch] = useState("");
+  const [gender, setGender] = useState(null);
+  const [isAlive, setIsAlive] = useState(null);
+  const [pages, setPages] = useState(1);
 
-  const handleSubmit = () => {
-    event.preventDefault();
+  const API_URL = `${url}/characters?page=${pages}`;
+
+  const { data } = useFetch(API_URL);
+
+  const handleReset = () => {
+    setGender(null);
+    setInputSearch("");
+    setIsAlive(null);
   };
 
-  const handleInputChange = () => {
-    setInputSearch(event.target.value);
-  };
-
-  console.log(data);
   return (
     <div className="container">
       <h1>LOS SIMPSONS</h1>
       <h2>APP - SPRINGFIELD DATABASE</h2>
       <ul>
-        {/* pasar informacion del fetch con un contexto  de total personajes y paginas */}
-
         <li>
           <span>{data.count}</span>Personajes{" "}
         </li>
@@ -35,21 +33,21 @@ export const App = () => {
         <li>Springfield, USA</li>
       </ul>
 
-      <form className="search-seccion" onClick={handleSubmit}>
+      <form className="search-seccion" onClick={() => event.preventDefault()}>
         <input
           type="text"
           placeholder="Buscar personaje ..."
-          onChange={handleInputChange}
+          onChange={() => setInputSearch(event.target.value)}
           value={inputSearch}
         />
-        <button>TODOS </button>
-        <button>MALE</button>
-        <button>FEMALE </button>
-        <button>ALIVE</button>
+        <button onClick={handleReset}>TODOS</button>
+        <button onClick={() => setGender("Male")}>MALE</button>
+        <button onClick={() => setGender("Female")}>FEMALE</button>
+        <button onClick={() => setIsAlive("Alive")}>ALIVE</button>
+        {/* enviar data.results.gender y filtrar por un valor dado en el input */}
       </form>
       <h3 id="title-pagination">PERSONAJES - PÁGINA {pages}</h3>
-      <Cards data={data} inputSearch={inputSearch} />
-
+      <Cards data={data} input={inputSearch} gender={gender} status={isAlive} />
       <div className="pagination">
         <button
           onClick={() => pages > 1 && setPages(pages - 1)}
