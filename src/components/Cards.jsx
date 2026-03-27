@@ -8,10 +8,6 @@ export const Cards = ({ data, input, gender, status }) => {
     setActiveId(activeId === id ? null : id);
   };
 
-  const handleClose = () => {
-    setActiveId(null);
-  };
-
   const personajesFiltrados =
     data.results?.filter((personaje) => {
       const matchNombre = personaje.name
@@ -53,10 +49,12 @@ export const Cards = ({ data, input, gender, status }) => {
             <div className="ocupation-text">{personaje.occupation}</div>
 
             <button
-              className="phrases-toggle"
+              className={
+                activeId != personaje.id ? "phrases-toggle" : "hidde-phrase"
+              }
               onClick={() => handlePhrase(personaje.id)}
             >
-              VER FRASES
+              {activeId != personaje.id ? "VER FRASES" : "OCULTAR FRASES"}
             </button>
 
             {activeId === personaje.id && (
@@ -66,13 +64,6 @@ export const Cards = ({ data, input, gender, status }) => {
                     <p>{frase}</p>
                   </div>
                 ))}
-                <button
-                  className="phrases-toggle"
-                  style={{ marginTop: "5px" }}
-                  onClick={handleClose}
-                >
-                  OCULTAR
-                </button>
               </div>
             )}
           </div>

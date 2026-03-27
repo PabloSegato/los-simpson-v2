@@ -16,6 +16,7 @@
 
 .container-cards {
   display: grid;
+  align-items: start;
   padding: 20px;
   margin-top: 10px;
   width: 100vw;
@@ -23,104 +24,137 @@
   gap: 20px;
 }
 .card {
-  min-height: 500px;
-  height: fit-content;
+  min-height: 425px;
   display: flex;
   flex-direction: column;
+  justify-content: space-between;
   border: 4px solid var(--blue-deep);
   box-shadow: 6px 8px var(--blue-deep);
   border-radius: 12px;
   background-color: var(--card-background);
-}
+  transition:
+    all 0.5s ease,
+    box-shadow 0.3s ease;
 
-.card-header {
-  display: flex;
-  align-items: center;
-  justify-content: space-around;
-  border-bottom: 3px solid var(--blue-deep);
-  background-color: var(--yelow-dark);
-  height: fit-content;
-  border-top-left-radius: 8px;
-  border-top-right-radius: 8px;
-}
-
-.status-alive {
-  font-family: "Nunito", sans-serif;
-  font-weight: 500;
-  font-size: 1rem;
-  align-self: flex-start;
-  margin-top: 15px;
-  background-color: var(--status-alive);
-  padding: 5px 15px;
-  border-radius: 12px;
-}
-
-.status-deceased {
-  font-family: "Nunito", sans-serif;
-  font-weight: 500;
-  font-size: 1rem;
-  align-self: flex-start;
-  margin-top: 15px;
-  background-color: var(--status-dead);
-  padding: 5px 15px;
-  border-radius: 12px;
-}
-
-.card-body {
-  padding: 8px;
-  display: flex;
-  flex-direction: column;
-}
-
-.card-body {
-  h3 {
-    font-size: 2rem;
-    font-family: "Bangers", cursive;
-    margin: 0 0 4px;
+  &:hover {
+    box-shadow: 12px 16px var(--blue-deep);
   }
-  span {
-    font-size: 1rem;
-    margin: 0 0 8px;
+
+  .card-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    border-bottom: 3px solid var(--blue-deep);
+    background-color: var(--yelow-dark);
+    height: fit-content;
+    border-top-left-radius: 8px;
+    border-top-right-radius: 8px;
+    img {
+      object-position: top;
+    }
+  }
+
+  .status-alive {
     font-family: "Nunito", sans-serif;
-    color: #888888;
+    font-weight: 500;
+    font-size: 1rem;
+    align-self: flex-start;
+    margin-top: 15px;
+    background-color: var(--status-alive);
+    padding: 5px 15px;
+    border-radius: 25px;
+    border: 3px solid var(--blue-deep);
   }
-}
 
-.ocupation-text {
-  background-color: var(--yellow-light);
-  width: fit-content;
-  margin: 0 0 14px;
-  padding: 5px 10px;
-  border-radius: 8px;
-  border: 2px solid var(--yellow-primary);
-  text-align: start;
-  font-family: "Nunito", sans-serif;
-  font-size: 1rem;
-}
+  .status-deceased {
+    font-family: "Nunito", sans-serif;
+    font-weight: 500;
+    font-size: 1rem;
+    align-self: flex-start;
+    margin-top: 15px;
+    background-color: var(--status-dead);
+    padding: 5px 15px;
+    border-radius: 12px;
+  }
 
-.phrases-toggle {
-  background-color: var(--blue-deep);
-  width: fit-content;
-  padding: 5px 20px;
-  align-self: center;
-  border-radius: 12px;
-  color: var(--yellow-primary);
-  font-family: "Bangers", cursive;
-  font-size: 1.2rem;
-  box-shadow: 3px 3px 0 rgba(0, 0, 0, 0.3);
-}
+  .card-body {
+    padding: 8px;
+    display: flex;
+    flex-direction: column;
+  }
 
-.phrases {
-  margin-top: 5px;
-}
-.container-phrases {
-  border: 2px solid var(--yellow-primary);
-  border-radius: 8px;
-  margin-top: 10px;
-  background-color: #fff;
-  font-family: "Nunito", sans-serif;
+  .card-body {
+    h3 {
+      font-size: 1.3rem;
+      font-family: "Bangers", cursive;
+      margin: 0 0 4px;
+    }
+    span {
+      font-size: 1rem;
+      margin: 0 0 8px;
+      font-family: "Nunito", sans-serif;
+      color: #888888;
+    }
+  }
 
-  p {
+  .ocupation-text {
+    background-color: var(--yellow-light);
+    width: fit-content;
+    margin: 0 0 14px;
     padding: 5px 10px;
+    border-radius: 8px;
+    border: 2px solid var(--yellow-primary);
+    text-align: start;
+    font-family: "Nunito", sans-serif;
+    font-size: 1rem;
+    text-wrap: balance;
+  }
+
+  .phrases-toggle {
+    background-color: var(--blue-deep);
+    width: fit-content;
+    padding: 5px 20px;
+    align-self: center;
+    border: none;
+    border-radius: 12px;
+    color: var(--yellow-primary);
+    font-family: "Bangers", cursive;
+    font-size: 1.2rem;
+    box-shadow: 5px 5px 0 rgba(0, 0, 0, 0.3);
+    transition: all 0.5s ease;
+    &:hover {
+      background-color: var(--blue-mid);
+      cursor: pointer;
+      transform: translatey(-3px);
+    }
+  }
+
+  .hidde-phrase {
+    background-color: var(--orange-accent);
+    width: fit-content;
+    padding: 5px 20px;
+    align-self: center;
+    border: none;
+    border-radius: 12px;
+    color: var(--yellow-primary);
+    font-family: "Bangers", cursive;
+    font-size: 1.2rem;
+    cursor: pointer;
+    box-shadow: 5px 5px 0 rgba(0, 0, 0, 0.3);
+  }
+
+  .phrases {
+    margin-top: 5px;
+  }
+  .container-phrases {
+    border: 2px solid var(--yellow-primary);
+    border-radius: 8px;
+    margin-top: 10px;
+    background-color: #fff;
+    font-family: "Nunito", sans-serif;
+
+    p {
+      padding: 5px 10px;
+    }
   }
 }

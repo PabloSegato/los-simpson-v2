@@ -19,6 +19,10 @@ export const App = () => {
     setIsAlive(null);
   };
 
+  const handleFilter = () => {
+    setGender(event.target.name);
+  };
+
   return (
     <div className="container">
       <h1>LOS SIMPSONS</h1>
@@ -40,10 +44,33 @@ export const App = () => {
           onChange={() => setInputSearch(event.target.value)}
           value={inputSearch}
         />
-        <button onClick={handleReset}>TODOS</button>
-        <button onClick={() => setGender("Male")}>MALE</button>
-        <button onClick={() => setGender("Female")}>FEMALE</button>
-        <button onClick={() => setIsAlive("Alive")}>ALIVE</button>
+        <button
+          onClick={handleReset}
+          className={gender === null ? "filterActive" : "buttonFilter"}
+        >
+          TODOS
+        </button>
+        <button
+          onClick={handleFilter}
+          name="Male"
+          className={gender === "Male" ? "filterActive" : "buttonFilter"}
+        >
+          MALE
+        </button>
+        <button
+          onClick={handleFilter}
+          name="Female"
+          className={gender === "Female" ? "filterActive" : "buttonFilter"}
+        >
+          FEMALE
+        </button>
+        <button
+          onClick={handleFilter}
+          name="Alive"
+          className={gender === "Alive" ? "filterActive" : "buttonFilter"}
+        >
+          ALIVE
+        </button>
         {/* enviar data.results.gender y filtrar por un valor dado en el input */}
       </form>
       <h3 id="title-pagination">PERSONAJES - PÁGINA {pages}</h3>

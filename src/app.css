@@ -70,6 +70,7 @@
     border: 3px solid var(--yellow-primary);
     font-family: "Nunito";
     font-weight: 700;
+    box-shadow: 5px 5px 0 rgba(0, 0, 0, 0.3);
   }
   span {
     color: var(--yellow-primary);
@@ -84,12 +85,33 @@
   box-shadow: 4px 4px var(--blue-deep);
 }
 
-.search-seccion button {
+.buttonFilter {
   border-radius: 18px;
   padding: 10px 15px;
   font-family: "Bangers";
   letter-spacing: 1px;
   background-color: var(--yellow-primary);
+  box-shadow: 4px 4px var(--blue-deep);
+  margin: 0px 8px 0 8px;
+
+  &:active {
+    color: var(--yellow-primary);
+    background-color: var(--blue-deep);
+  }
+
+  &:hover {
+    transform: scale(1.1);
+  }
+}
+
+.filterActive {
+  background-color: var(--blue-deep);
+  color: var(--yellow-primary);
+
+  border-radius: 18px;
+  padding: 10px 15px;
+  font-family: "Bangers";
+  letter-spacing: 1px;
   box-shadow: 4px 4px var(--blue-deep);
   margin: 0px 8px 0 8px;
 
