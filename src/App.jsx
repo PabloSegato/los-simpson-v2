@@ -11,7 +11,7 @@ export const App = () => {
 
   const API_URL = `${url}/characters?page=${pages}`;
 
-  const { data } = useFetch(API_URL);
+  const { data, isLoading, isError } = useFetch(API_URL);
 
   const handleReset = () => {
     setGender(null);
@@ -71,10 +71,19 @@ export const App = () => {
         >
           ALIVE
         </button>
-        {/* enviar data.results.gender y filtrar por un valor dado en el input */}
       </form>
       <h3 id="title-pagination">PERSONAJES - PÁGINA {pages}</h3>
-      <Cards data={data} input={inputSearch} gender={gender} status={isAlive} />
+      {isLoading ? (
+        "Cargando...."
+        
+      ) : (
+        <Cards
+          data={data}
+          input={inputSearch}
+          gender={gender}
+          status={isAlive}
+        />
+      )}
       <div className="pagination">
         <button
           onClick={() => pages > 1 && setPages(pages - 1)}
