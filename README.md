@@ -1,18 +1,72 @@
-# React + Vite
+# 🎬 Los Simpson - Springfield Database
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Aplicación web interactiva para explorar personajes de Los Simpson usando React y Vite.
 
-Currently, two official plugins are available:
+## ✨ Características
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+- 🔍 **Búsqueda** de personajes en tiempo real
+- 👥 **Filtros** por género (Masculino/Femenino/Vivos)
+- 📄 **Paginación** inteligente
+- 📊 Estadísticas de la base de datos
 
-## React Compiler
+---
 
-The React Compiler is enabled on this template. See [this documentation](https://react.dev/learn/react-compiler) for more information.
+## 🛠️ Tecnologías
 
-Note: This will impact Vite dev & build performances.
+- **React 19.2.4** - Interfaz de usuario
+- **Vite 8.0.1** - Build tool
+- **The Simpsons API** - Datos
 
-## Expanding the ESLint configuration
+---
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+## 🚀 Instalación
+
+```bash
+# Clonar
+git clone https://github.com/tu-usuario/los-simpson-v2.git
+cd los-simpson-v2-main
+
+# Instalar
+npm install
+
+# Desarrollar
+npm run dev
+
+# Producción
+npm run build
+```
+
+---
+
+## 📁 Estructura
+
+```
+src/
+├── components/Cards.jsx      # Tarjetas de personajes
+├── hooks/useFetch.jsx        # Hook API
+├── App.jsx                   # Componente principal
+└── constants.js              # URL API
+```
+
+---
+
+## 📖 Scripts
+
+| Comando | Descripción |
+|---------|-------------|
+| `npm run dev` | Inicia servidor desarrollo |
+| `npm run build` | Build producción |
+| `npm run lint` | Verificar código |
+
+---
+
+## 🔗 API
+
+**The Simpsons API**: `https://thesimpsonsapi.com/api`
+
+Endpoint: `/characters?page={number}`
+
+---
+
+
+
